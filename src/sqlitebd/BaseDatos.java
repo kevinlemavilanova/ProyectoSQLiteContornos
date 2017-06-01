@@ -28,14 +28,12 @@ public class BaseDatos {
 /**
  * Metodo para conectarse a la base de datos con la url dada en el constructor
  */
-    public void connect() {
+    public Boolean connect() {
         try {
             conn = DriverManager.getConnection(url);
-            if (conn != null) {
-                System.out.println("Conectado");
-            }
+            return true;
         } catch (SQLException ex) {
-            System.err.println("No se ha podido conectar a la base de datos");
+            return false;
         }
     }
 /**
